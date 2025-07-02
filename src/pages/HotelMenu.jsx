@@ -1,6 +1,7 @@
 import { useParams, useLocation, Link } from 'react-router-dom';
 import { foodItems, hotels } from '../data';
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 export default function HotelMenu() {
   const { id } = useParams();
@@ -20,36 +21,47 @@ export default function HotelMenu() {
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-      }, 200);
+      }, 300);
     }
   }, [hash]);
 
   return (
-    <div className="container mt-4">
-      <h2>{hotel?.name} Menu</h2>
-      <div className="row g-3 mt-3">
-        {menu.map(item => {
+    <div className="container mt-4 pb-5">
+      <h2 className="fw-bold mb-4">
+        🍽️ {hotel?.name} <span className="text-muted fs-5">({hotel?.location})</span>
+      </h2>
+
+      <div className="row g-4">
+        {menu.map((item, index) => {
           const isHighlighted = String(item.id) === highlightedId;
           return (
-            <div key={item.id} className="col-6 col-md-3" id={`food-${item.id}`}>
+            <div key={item.id} className="col-6 col-md-4 col-lg-3" id={`food-${item.id}`}>
               <Link to={`/food/${item.id}`} className="text-decoration-none text-dark">
-                <div
-                  className="card h-100 shadow-sm"
+                <motion.div
+                  className="card border-0 shadow-sm h-100 overflow-hidden rounded-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.05, duration: 0.4 }}
                   style={{
-                    border: isHighlighted ? '2px solid #0d6efd' : '',
                     boxShadow: isHighlighted
-                      ? '0 0 15px 4px rgba(13, 110, 253, 0.7)'
+                      ? '0 0 16px 5px rgba(0, 123, 255, 0.5)'
                       : '',
+                    transform: isHighlighted ? 'scale(1.02)' : '',
                     transition: 'all 0.3s ease-in-out',
                   }}
                 >
-                  <img src={item.img} className="card-img-top" alt={item.name} />
+                  <img
+                    src={item.img}
+                    className="card-img-top"
+                    alt={item.name}
+                    style={{ height: '160px', objectFit: 'cover' }}
+                  />
                   <div className="card-body">
-                    <h5 className="card-title">{item.name}</h5>
-                    <p className="card-text">₹{item.price}</p>
-                    <p className="text-warning">⭐ {item.rating}</p>
+                    <h5 className="card-title fw-semibold">{item.name}</h5>
+                    <p className="mb-1 text-success fw-bold">₹{item.price}</p>
+                    <p className="text-warning mb-0">⭐ {item.rating}</p>
                   </div>
-                </div>
+                </motion.div>
               </Link>
             </div>
           );
