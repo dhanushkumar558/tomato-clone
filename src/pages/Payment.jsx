@@ -5,13 +5,14 @@ export default function Payment() {
   const handlePayment = (method) => {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const orders = JSON.parse(localStorage.getItem('orders')) || [];
-    const newOrder = {
-      id: Date.now(),
-      items: cart,
-      method,
-      time: new Date().toLocaleString(),
-      eta: `${Math.floor(Math.random() * 20) + 20} mins`
-    };
+   const newOrder = {
+  id: Date.now(),
+  items: cart,
+  method,
+  time: new Date().toISOString(), // ✅ always save in ISO format
+  eta: new Date(Date.now() + 1 * 60 * 1000).toISOString() // ✅ 25 minutes from now
+};
+
     orders.push(newOrder);
     localStorage.setItem('orders', JSON.stringify(orders));
     localStorage.removeItem('cart');

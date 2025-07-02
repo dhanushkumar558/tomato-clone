@@ -4,7 +4,7 @@ const ETA_DURATION_MS = 1 * 60 * 1000; // 1 minute ETA
 
 export default function Orders() {
   const [orders, setOrders] = useState([]);
-  const [filters, setFilters] = useState({ date: '', city: '', method: '' });
+  const [filters, setFilters] = useState({ date: '', method: '' });
   const [now, setNow] = useState(Date.now());
 
   useEffect(() => {
@@ -17,32 +17,27 @@ export default function Orders() {
     return () => clearInterval(interval);
   }, []);
 
-  // Calculate ETA from order placement time dynamically
-  const getEtaFromOrder = (order) => {
-    return new Date(new Date(order.time).getTime() + ETA_DURATION_MS).toISOString();
-  };
+  const getEtaFromOrder = (order) =>
+    new Date(new Date(order.time).getTime() + ETA_DURATION_MS).toISOString();
 
   const filteredOrders = orders.filter(order => {
     const matchesDate = !filters.date || order.time.startsWith(filters.date);
-    const matchesCity = !filters.city || order.city?.toLowerCase() === filters.city.toLowerCase();
     const matchesMethod = !filters.method || order.method === filters.method;
-    return matchesDate && matchesCity && matchesMethod;
+    return matchesDate && matchesMethod;
   });
 
   const deliveryProgress = (eta) => {
-    if (!eta) return 100;
     const etaTime = new Date(eta).getTime();
-    const startTime = etaTime - ETA_DURATION_MS; // start 1 min before ETA
-    if (isNaN(etaTime) || now >= etaTime) return 100;
+    const startTime = etaTime - ETA_DURATION_MS;
+    if (!eta || isNaN(etaTime) || now >= etaTime) return 100;
     if (now <= startTime) return 0;
     const progress = ((now - startTime) / (etaTime - startTime)) * 100;
     return Math.min(100, Math.max(0, Math.round(progress)));
   };
 
   const calculateCountdown = (eta) => {
-    if (!eta) return '✅ Delivered';
     const etaTime = new Date(eta).getTime();
-    if (isNaN(etaTime)) return 'ETA unavailable';
+    if (!eta || isNaN(etaTime)) return 'ETA unavailable';
     const diff = etaTime - now;
     if (diff <= 0) return '✅ Delivered';
     const mins = Math.floor(diff / 60000);
@@ -63,8 +58,9 @@ export default function Orders() {
   };
 
   const generateInvoice = (order) => {
+    const eta = getEtaFromOrder(order);
     const total = order.items.reduce((sum, item) => sum + item.price * item.qty, 0);
-    let content = `🍅 Tomato - Invoice\n\nOrder ID: ${order.id}\nTime: ${order.time}\nPayment: ${order.method}\nETA: ${getEtaFromOrder(order)}\nCity: ${order.city || 'N/A'}\n\nItems:\n`;
+    let content = `🍅 Tomato - Invoice\n\nOrder ID: ${order.id}\nTime: ${order.time}\nPayment: ${order.method}\nETA: ${eta}\n\nItems:\n`;
     order.items.forEach(item => {
       content += `• ${item.name} × ${item.qty} = ₹${item.qty * item.price}\n`;
     });
@@ -79,7 +75,6 @@ export default function Orders() {
     URL.revokeObjectURL(url);
   };
 
-  const uniqueCities = [...new Set(orders.map(o => o.city).filter(Boolean))];
   const uniqueMethods = [...new Set(orders.map(o => o.method))];
 
   return (
@@ -88,7 +83,7 @@ export default function Orders() {
 
       {/* Filters */}
       <div className="row g-3 mb-4">
-        <div className="col-md-3">
+        <div className="col-md-4">
           <input
             type="date"
             className="form-control"
@@ -96,19 +91,7 @@ export default function Orders() {
             onChange={e => setFilters({ ...filters, date: e.target.value })}
           />
         </div>
-        <div className="col-md-3">
-          <select
-            className="form-select"
-            value={filters.city}
-            onChange={e => setFilters({ ...filters, city: e.target.value })}
-          >
-            <option value="">All Cities</option>
-            {uniqueCities.map((city, i) => (
-              <option key={i} value={city}>{city}</option>
-            ))}
-          </select>
-        </div>
-        <div className="col-md-3">
+        <div className="col-md-4">
           <select
             className="form-select"
             value={filters.method}
@@ -120,10 +103,10 @@ export default function Orders() {
             ))}
           </select>
         </div>
-        <div className="col-md-3">
+        <div className="col-md-4">
           <button
             className="btn btn-outline-secondary w-100"
-            onClick={() => setFilters({ date: '', city: '', method: '' })}
+            onClick={() => setFilters({ date: '', method: '' })}
           >
             Reset Filters
           </button>
@@ -141,7 +124,6 @@ export default function Orders() {
                 <div>
                   <div><strong>Time:</strong> {new Date(order.time).toLocaleString()}</div>
                   <div><strong>Payment:</strong> {order.method}</div>
-                  <div><strong>City:</strong> {order.city || 'N/A'}</div>
                 </div>
                 <div className="text-end">
                   <div><strong>ETA:</strong> {new Date(eta).toLocaleTimeString()}</div>
