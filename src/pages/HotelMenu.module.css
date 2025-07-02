@@ -1,0 +1,14 @@
+.glow-highlight {
+  border: 2px solid #0d6efd;
+  box-shadow: 0 0 12px 4px rgba(13, 110, 253, 0.6);
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 12px 4px rgba(13, 110, 253, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 20px 6px rgba(13, 110, 253, 0.9);
+  }
+}
