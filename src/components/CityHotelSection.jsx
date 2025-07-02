@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export default function CityHotelSection({ city }) {
+  const isMobile = window.innerWidth < 768;
   const cityHotels = hotels
     .filter(h => h.location.toLowerCase() === city.toLowerCase())
-    .slice(0, 4);
+    .slice(0, isMobile ? 2 : 4); // Show 2 on mobile, 4 on PC
 
   if (!cityHotels.length) return null;
 
@@ -18,13 +19,17 @@ export default function CityHotelSection({ city }) {
       transition={{ duration: 0.5 }}
     >
       <div className="d-flex justify-content-between align-items-center mb-3">
-        <h4 className="fw-bold text-dark">🏨 Browse Hotels in <span className="text-primary">{city}</span></h4>
-        <Link to={`/hotels/${city}`} className="btn btn-outline-primary btn-sm">View All</Link>
+        <h4 className="fw-bold text-dark">
+          🏨 Browse Hotels in <span className="text-primary">{city}</span>
+        </h4>
+        <Link to={`/hotels/${city}`} className="btn btn-outline-primary btn-sm">
+          View All
+        </Link>
       </div>
 
       <div className="row g-3">
         {cityHotels.map(hotel => (
-          <div className="col-md-3" key={hotel.id}>
+          <div className="col-6 col-md-3" key={hotel.id}>
             <HotelCard hotel={hotel} />
           </div>
         ))}
