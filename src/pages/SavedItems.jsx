@@ -1,6 +1,6 @@
-// pages/SavedItems.jsx
 import { useEffect, useState } from 'react';
 import FoodCard from '../components/FoodCard';
+import { motion } from 'framer-motion';
 
 export default function SavedItems() {
   const [saved, setSaved] = useState([]);
@@ -12,17 +12,51 @@ export default function SavedItems() {
 
   return (
     <div className="container mt-4">
-      <h3>🔖 Your Saved Foods</h3>
+      <motion.h3
+        className="mb-4 text-primary fw-bold"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        🔖 Your Saved Foods
+      </motion.h3>
+
       {saved.length === 0 ? (
-        <p className="text-muted">No items saved yet.</p>
+        <motion.p
+          className="text-muted"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          No items saved yet.
+        </motion.p>
       ) : (
-        <div className="row g-3 mt-2">
+        <motion.div
+          className="row g-3 mt-2"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.05,
+              },
+            },
+          }}
+        >
           {saved.map(item => (
-            <div className="col-6 col-md-3" key={item.id}>
+            <motion.div
+              className="col-6 col-md-3"
+              key={item.id}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+            >
               <FoodCard item={item} />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       )}
     </div>
   );
