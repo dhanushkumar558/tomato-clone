@@ -6,6 +6,7 @@ import 'animate.css';
 
 export default function FoodDetail() {
   const { id } = useParams();
+  
     useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
