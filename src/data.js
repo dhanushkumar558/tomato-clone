@@ -16,7 +16,7 @@ export const hotels = [
 export const foodItems = [
   // Delhi (10)
   {
-    id: 101, name: "Margherita Pizza", price: 199, hotelId: 1, img: "/pizza.jpg", rating: 4.5,
+    id: 101, name: "Margherita Pizza", price: 199, hotelId: 1, img: "https://cdn.loveandlemons.com/wp-content/uploads/2023/07/margherita-pizza-recipe-719x1024.jpg", rating: 4.5,
     description: "Classic cheese pizza with tomato sauce and fresh basil.",
     cookingMethod: "Baked in a stone oven at 400°C for 12 minutes.",
     toppings: ["Extra Cheese", "Olives", "Basil"]

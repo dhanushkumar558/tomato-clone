@@ -72,12 +72,23 @@ export default function FoodDetail() {
     <div className="container mt-5 pb-5">
       <div className="row g-4 align-items-start">
         {/* Image Left */}
-        <div className="col-md-5 animate__animated animate__fadeInLeft">
-          <img src={food.img} className="img-fluid rounded shadow-sm" alt={food.name} />
-          <div className="text-center mt-3">
-            <span className="badge bg-warning text-dark fs-6">⭐ {food.rating}</span>
-          </div>
-        </div>
+      <div className="col-md-5 animate__animated animate__fadeInLeft">
+  <div
+    className="rounded shadow-sm overflow-hidden w-100"
+    style={{ height: '420px', position: 'relative' }}
+  >
+    <img
+      src={food.img}
+      alt={food.name}
+      className="w-100 h-100"
+      style={{ objectFit: 'cover' }}
+    />
+  </div>
+  <div className="text-center mt-3">
+    <span className="badge bg-warning text-dark fs-6">⭐ {food.rating}</span>
+  </div>
+</div>
+
 
         {/* Info Right */}
         <div className="col-md-7 animate__animated animate__fadeInRight">
