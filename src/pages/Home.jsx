@@ -36,15 +36,16 @@ export default function Home() {
     foodChunks.push(filteredFoods.slice(i, i + CHUNK_SIZE));
   }
 
-  const cities = [...new Set(hotels.map(h => h.location))];
-
   const trendingHotels = [...hotels]
     .sort((a, b) => b.rating - a.rating)
     .slice(0, 5);
 
   return (
     <div className="container mt-4 pb-5">
+      {/* 🔍 Sticky Filter Bar */}
       <motion.div
+        className="bg-white sticky-top py-3"
+        style={{ zIndex: 20 }}
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -63,7 +64,7 @@ export default function Home() {
         />
       </motion.div>
 
-      {/* 🌟 Trending Hotels Filter Buttons */}
+      {/* 🌟 Trending Hotels */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -97,27 +98,31 @@ export default function Home() {
           <p className="text-muted">No foods match your filters.</p>
         )}
 
-        {foodChunks.map((chunk, index) => (
-          <div key={index}>
-            <motion.div
-              className="row g-4 mb-5"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-            >
-              {chunk.map(item => (
-                <div key={item.id} className="col-6 col-md-3">
-                  <FoodCard item={item} />
-                </div>
-              ))}
-            </motion.div>
+        {foodChunks.map((chunk, index) => {
+          const firstHotel = hotels.find(h => h.id === chunk[0].hotelId);
+          const cityForChunk = firstHotel?.location;
 
-            {/* Insert City-Based Hotel Section */}
-            {cities[index] && (
-              <CityHotelSection city={cities[index]} />
-            )}
-          </div>
-        ))}
+          return (
+            <div key={index}>
+              {/* Food Cards Row */}
+              <motion.div
+                className="row g-4 mb-5"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+              >
+                {chunk.map(item => (
+                  <div key={item.id} className="col-6 col-sm-4 col-md-3">
+                    <FoodCard item={item} />
+                  </div>
+                ))}
+              </motion.div>
+
+              {/* 🏨 City Hotel Section */}
+              {cityForChunk && <CityHotelSection city={cityForChunk} />}
+            </div>
+          );
+        })}
       </motion.div>
     </div>
   );
