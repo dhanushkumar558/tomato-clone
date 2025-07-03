@@ -6,6 +6,10 @@ import 'animate.css';
 
 export default function FoodDetail() {
   const { id } = useParams();
+    useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   const food = foodItems.find(f => f.id === Number(id));
   const hotel = hotels.find(h => h.id === food.hotelId);
 
@@ -22,24 +26,37 @@ export default function FoodDetail() {
   const [rating, setRating] = useState('');
   const [qty, setQty] = useState(1);
   const [message, setMessage] = useState('');
+  const [isSaved, setIsSaved] = useState(false);
 
   useEffect(() => {
     localStorage.setItem(storageKey, JSON.stringify(reviewList));
   }, [reviewList]);
 
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem('savedItems') || '[]');
+    setIsSaved(saved.some(f => f.id === food.id));
+  }, [food.id]);
+
+  const toggleSave = () => {
+    let saved = JSON.parse(localStorage.getItem('savedItems') || '[]');
+    if (isSaved) {
+      saved = saved.filter(f => f.id !== food.id);
+    } else {
+      saved.push(food);
+    }
+    localStorage.setItem('savedItems', JSON.stringify(saved));
+    setIsSaved(!isSaved);
+  };
+
   const handleAddToCart = () => {
     if (qty < 1) return;
-
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const existing = cart.find(item => item.id === food.id);
-
     if (existing) existing.qty += qty;
     else cart.push({ ...food, qty });
-
     localStorage.setItem('cart', JSON.stringify(cart));
     setMessage(`🛒 ${qty} × ${food.name} added to cart!`);
     setQty(1);
-
     setTimeout(() => setMessage(''), 3000);
   };
 
@@ -72,28 +89,43 @@ export default function FoodDetail() {
     <div className="container mt-5 pb-5">
       <div className="row g-4 align-items-start">
         {/* Image Left */}
-      <div className="col-md-5 animate__animated animate__fadeInLeft">
-  <div
-    className="rounded shadow-sm overflow-hidden w-100"
-    style={{ height: '420px', position: 'relative' }}
-  >
-    <img
-      src={food.img}
-      alt={food.name}
-      className="w-100 h-100"
-      style={{ objectFit: 'cover' }}
-    />
-  </div>
-  <div className="text-center mt-3">
-    <span className="badge bg-warning text-dark fs-6">⭐ {food.rating}</span>
-  </div>
+        <div className="col-md-5 animate__animated animate__fadeInLeft">
+          <div
+            className="rounded shadow-sm overflow-hidden w-100 position-relative"
+            style={{ height: '420px' }}
+          >
+            <img
+              src={food.img}
+              alt={food.name}
+              className="w-100 h-100"
+              style={{ objectFit: 'cover' }}
+            />
+
+            {/* Heart Save Button */}
+           <div
+  onClick={toggleSave}
+  className="position-absolute top-0 start-0 m-2"
+  style={{ cursor: 'pointer', zIndex: 10 }}
+  title={isSaved ? 'Unsave' : 'Save'}
+>
+  <span className={`fs-2 ${isSaved ? 'text-danger' : 'text-primary'}`}>
+    {isSaved ? '❤️' : '🤍'}
+  </span>
 </div>
 
+          </div>
+
+          <div className="text-center mt-3">
+            <span className="badge bg-warning text-dark fs-6">⭐ {food.rating}</span>
+          </div>
+        </div>
 
         {/* Info Right */}
         <div className="col-md-7 animate__animated animate__fadeInRight">
           <h2 className="fw-bold">{food.name}</h2>
-          <p className="text-muted">from <strong>{hotel.name}</strong> ({hotel.location})</p>
+          <p className="text-muted">
+            from <strong>{hotel.name}</strong> ({hotel.location})
+          </p>
 
           <div className="my-3">
             <h5 className="text-success">About this dish</h5>
@@ -118,21 +150,30 @@ export default function FoodDetail() {
           <div className="d-flex flex-wrap align-items-center gap-3">
             <h3 className="text-danger mb-0">₹{food.price}</h3>
             <div className="input-group" style={{ width: '130px' }}>
-              <button className="btn btn-outline-secondary" onClick={() => setQty(q => Math.max(1, q - 1))}>−</button>
+              <button
+                className="btn btn-outline-secondary"
+                onClick={() => setQty(q => Math.max(1, q - 1))}
+              >
+                −
+              </button>
               <input
                 type="number"
                 className="form-control text-center"
                 value={qty}
                 onChange={(e) => setQty(Math.max(1, Number(e.target.value)))}
               />
-              <button className="btn btn-outline-secondary" onClick={() => setQty(q => q + 1)}>+</button>
+              <button
+                className="btn btn-outline-secondary"
+                onClick={() => setQty(q => q + 1)}
+              >
+                +
+              </button>
             </div>
             <button className="btn btn-success px-4" onClick={handleAddToCart}>
               🛒 Order Now
             </button>
           </div>
 
-          {/* Feedback Toast */}
           {message && (
             <div className="alert alert-success mt-3 animate__animated animate__fadeInUp">
               {message}
@@ -173,7 +214,11 @@ export default function FoodDetail() {
             />
           </div>
           <div className="col-md-4">
-            <select className="form-select" value={rating} onChange={(e) => setRating(e.target.value)}>
+            <select
+              className="form-select"
+              value={rating}
+              onChange={(e) => setRating(e.target.value)}
+            >
               <option value="">Rating</option>
               <option value="5">⭐ 5 - Excellent</option>
               <option value="4">⭐ 4 - Good</option>

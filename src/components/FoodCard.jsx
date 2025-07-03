@@ -13,7 +13,7 @@ export default function FoodCard({ item }) {
   }, [item.id]);
 
   const toggleSave = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // prevent navigation
     let saved = JSON.parse(localStorage.getItem('savedItems') || '[]');
     if (isSaved) {
       saved = saved.filter(f => f.id !== item.id);
@@ -32,14 +32,24 @@ export default function FoodCard({ item }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
     >
-    <Link
-  to={`/hotel/${item.hotelId}`}
-  state={{ highlightId: item.id }}
-  className="text-decoration-none text-dark"
->
+      {/* Save Button - Heart Bottom Right */}
+      <button
+        onClick={toggleSave}
+        className="btn btn-sm position-absolute bottom-0 end-0 m-2 rounded-circle bg-white shadow-sm"
+        title={isSaved ? 'Unsave' : 'Save'}
+        style={{ width: '36px', height: '36px', zIndex: 10 }}
+      >
+        <i
+          className={`bi ${isSaved ? 'bi-heart-fill text-danger' : 'bi-heart'}`}
+          style={{ fontSize: '18px' }}
+        ></i>
+      </button>
 
-
-
+      <Link
+        to={`/hotel/${item.hotelId}`}
+        state={{ highlightId: item.id }}
+        className="text-decoration-none text-dark"
+      >
         <div className="small text-muted px-3 pt-2">{hotel?.name}</div>
         <img
           src={item.img}
@@ -47,23 +57,12 @@ export default function FoodCard({ item }) {
           alt={item.name}
           style={{ height: '160px', objectFit: 'cover' }}
         />
-        <div className="card-body">
+        <div className="card-body pb-4"> {/* Extra padding for bottom button */}
           <h5 className="card-title mb-1">{item.name}</h5>
           <p className="text-success fw-bold mb-1">₹{item.price}</p>
           <span className="text-warning small">⭐ {item.rating}</span>
         </div>
       </Link>
-
-      <button
-        onClick={toggleSave}
-        className={`btn btn-sm position-absolute top-0 end-0 m-2 rounded-circle ${
-          isSaved ? 'btn-warning' : 'btn-outline-secondary'
-        }`}
-        title={isSaved ? 'Unsave' : 'Save'}
-        style={{ width: '34px', height: '34px' }}
-      >
-        {isSaved ? '💾' : '🔖'}
-      </button>
     </motion.div>
   );
 }

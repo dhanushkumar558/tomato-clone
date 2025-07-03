@@ -5,6 +5,9 @@ import { motion } from 'framer-motion';
 
 export default function HotelMenu() {
   const { id } = useParams();
+   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   const location = useLocation();
   const menuRef = useRef({});
   const [highlightedId, setHighlightedId] = useState(null);
@@ -44,12 +47,36 @@ export default function HotelMenu() {
 
   return (
     <div className="container mt-4 pb-5">
-      <h2 className="fw-bold mb-4">
-        🍽️ {hotel?.name}{' '}
-        <span className="text-muted fs-5">({hotel?.location})</span>
-      </h2>
+      {/* Hotel Name and Location */}
+      <div className="mb-4">
+        <h2 className="fw-bold mb-3">
+          🍽️ {hotel?.name}{' '}
+          <span className="text-muted fs-5">({hotel?.location})</span>
+        </h2>
 
+        {/* Hotel Banner Image with Animation */}
+        <motion.div
+          className="rounded overflow-hidden"
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          whileHover={{
+            scale: 1.02,
+            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
+          }}
+        >
+          <img
+            src={hotel?.img}
+            alt={hotel?.name}
+            className="w-100"
+            style={{ height: '300px', objectFit: 'cover', transition: 'all 0.3s ease' }}
+          />
+        </motion.div>
+      </div>
+
+      {/* Food Menu Cards */}
       <div className="row g-4">
+        <h1> <i><b>🍽️ Menu List</b></i></h1>
         {menu.map((item, index) => {
           const isHighlighted = String(item.id) === highlightedId;
           const isSaved = savedItems.some(f => f.id === item.id);
@@ -92,16 +119,19 @@ export default function HotelMenu() {
                   </div>
 
                   {/* Save/Unsave button */}
-                  <button
-                    onClick={(e) => toggleSave(e, item)}
-                    className={`btn btn-sm position-absolute top-0 end-0 m-2 rounded-circle ${
-                      isSaved ? 'btn-warning' : 'btn-outline-secondary'
-                    }`}
-                    title={isSaved ? 'Unsave' : 'Save'}
-                    style={{ width: '34px', height: '34px', zIndex: 20 }}
-                  >
-                    {isSaved ? '💾' : '🔖'}
-                  </button>
+                 <div
+  onClick={(e) => toggleSave(e, item)}
+  className="position-absolute bottom-0 end-0 m-2"
+  style={{ zIndex: 20, cursor: 'pointer' }}
+>
+  <span
+    className={`fs-4 ${isSaved ? 'text-danger' : 'text-muted'}`}
+    title={isSaved ? 'Unsave' : 'Save'}
+  >
+    {isSaved ? '❤️' : '🤍'}
+  </span>
+</div>
+
                 </motion.div>
               </Link>
             </div>
