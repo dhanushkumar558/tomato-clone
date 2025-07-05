@@ -1,7 +1,14 @@
 /* in App.css or index.css */
-body {
-  padding-top: 70px;
-}
+
 body {
   overflow-x: hidden;
+}
+.app-background {
+  min-height: 100vh;
+  background-color: none; /* Light, clean look */
+  background-image: url('/bg-pattern.svg'); /* Optional: your pattern/image */
+  background-repeat: repeat;
+  background-size: 120px auto;
+  background-attachment: fixed;
+  
 }

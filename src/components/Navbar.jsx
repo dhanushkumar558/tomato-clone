@@ -4,22 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function Navbar() {
   const location = useLocation();
-  
-  
   const [expanded, setExpanded] = useState(false);
-  useEffect(() => {
-  const handleResize = () => {
-    const isMobile = window.innerWidth < 992;
-    if (isMobile && expanded) {
-      setExpanded(false);
-    }
-  };
-
-  handleResize(); // Run once on mount
-  window.addEventListener('resize', handleResize);
-  return () => window.removeEventListener('resize', handleResize);
-}, [expanded]);
-
   const [cartCount, setCartCount] = useState(0);
   const [ordersCount, setOrdersCount] = useState(0);
   const [savedCount, setSavedCount] = useState(0);

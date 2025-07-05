@@ -50,7 +50,8 @@ export default function FoodCard({ item }) {
         state={{ highlightId: item.id }}
         className="text-decoration-none text-dark"
       >
-        <div className="small text-muted px-3 pt-2">{hotel?.name}</div>
+       <div className="small fw-bold text-muted px-3 pt-2">{hotel?.name}</div>
+
         <img
           src={item.img}
           className="card-img-top"

@@ -1,17 +1,27 @@
 export const hotels = [
+  // 🏙️ Chennai
+  { id: 5, name: "The Curry House", location: "Chennai", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh8Jkbj1UR94kVgZPo6TYb04YVftTrqMhcOg&s" },
+  { id: 10, name: "Chennai Chaats", location: "Chennai", img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/1a/08/67/saravana-bhavan.jpg?w=700&h=400&s=1" },
+  { id: 12, name: "South Spice", location: "Chennai", img: "https://content.jdmagicbox.com/v2/comp/chennai/n6/044pxx44.xx44.230427224935.u4n6/catalogue/hotel-south-spices-minjur-chennai-restaurants-xm7smgd343-250.jpg" },
+
+  // 🏙️ Delhi
   { id: 1, name: "Foodies Junction", location: "Delhi", img: "https://b.zmtcdn.com/data/pictures/7/20185647/49dc9aca81aa82493396ec55d2f5ecf5.jpg" },
+  { id: 6, name: "Delhi Diner", location: "Delhi", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuJ8EpxP2m7OCwj5IHHrB627jFkJ6_eNeLTg&s" },
+  { id: 11, name: "Capital Feast", location: "Delhi", img: "https://image.wedmegood.com/resized/720X/uploads/member/934528/1576937126_Screenshot_1.jpg" },
+
+  // 🏙️ Mumbai
   { id: 2, name: "Spice Villa", location: "Mumbai", img: "https://www.venuelook.com/_next/image?url=https%3A%2F%2Fcdn.venuelook.com%2Fuploads%2Fspace_21985%2F1579335018_595x400.png&w=1080&q=75" },
-  { id: 3, name: "Urban Bites", location: "Bangalore", img: "  https://content.jdmagicbox.com/v2/comp/bangalore/t2/080pxx80.xx80.240326201105.h7t2/catalogue/urban-bites-bangalore-restaurants-b8kbz9v40e.jpg " },
-  { id: 4, name: "Tandoori Nights", location: "Hyderabad", img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/4c/8c/85/tandoori-night-s-original.jpg?w=500&h=-1&s=1   " },
-  { id: 5, name: "The Curry House", location: "Chennai", img: " https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh8Jkbj1UR94kVgZPo6TYb04YVftTrqMhcOg&s  " },
-  { id: 6, name: "Delhi Diner", location: "Delhi", img: "  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuJ8EpxP2m7OCwj5IHHrB627jFkJ6_eNeLTg&s " },
-  { id: 7, name: "Mumbai Masala", location: "Mumbai", img: " https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/26/f8/65/foto.jpg?w=900&h=-1&s=1   " },
-  { id: 8, name: "Bangalore BBQ", location: "Bangalore", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTssuhtkd7K_bafmyLCfUkcRY0PxUZ5xmX_dQ&s "     },
-  { id: 9, name: "Hyderabadi Heat", location: "Hyderabad", img: "   https://z.cdrst.com/foto/hotel-sf/128b8128/granderesp/foto-hotel-128b767e.jpg  " },
-  { id: 10, name: "Chennai Chaats", location: "Chennai", img: "    https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/1a/08/67/saravana-bhavan.jpg?w=700&h=400&s=1   " },
-  { id: 11, name: "Capital Feast", location: "Delhi", img: "   https://image.wedmegood.com/resized/720X/uploads/member/934528/1576937126_Screenshot_1.jpg     " },
-  { id: 12, name: "South Spice", location: "Chennai", img: "    https://content.jdmagicbox.com/v2/comp/chennai/n6/044pxx44.xx44.230427224935.u4n6/catalogue/hotel-south-spices-minjur-chennai-restaurants-xm7smgd343-250.jpg    " },
+  { id: 7, name: "Mumbai Masala", location: "Mumbai", img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/26/f8/65/foto.jpg?w=900&h=-1&s=1" },
+
+  // 🏙️ Bangalore
+  { id: 3, name: "Urban Bites", location: "Bangalore", img: "https://content.jdmagicbox.com/v2/comp/bangalore/t2/080pxx80.xx80.240326201105.h7t2/catalogue/urban-bites-bangalore-restaurants-b8kbz9v40e.jpg" },
+  { id: 8, name: "Bangalore BBQ", location: "Bangalore", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTssuhtkd7K_bafmyLCfUkcRY0PxUZ5xmX_dQ&s" },
+
+  // 🏙️ Hyderabad
+  { id: 4, name: "Tandoori Nights", location: "Hyderabad", img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/4c/8c/85/tandoori-night-s-original.jpg?w=500&h=-1&s=1" },
+  { id: 9, name: "Hyderabadi Heat", location: "Hyderabad", img: "https://z.cdrst.com/foto/hotel-sf/128b8128/granderesp/foto-hotel-128b767e.jpg" },
 ];
+
 
 export const foodItems = [
   // Delhi (10)
@@ -199,4 +209,134 @@ export const foodItems = [
     cookingMethod: "Cooked with ghee and saffron.",
     toppings: ["Cashew", "Raisin", "Ghee"]
   },
+
+  // Chennai (10)
+{
+  id: 141, name: "Sambar Idli", price: 60, hotelId: 12, img: "", rating: 4.3,
+  description: "Soft idlis dunked in hot sambar.",
+  cookingMethod: "Steamed and soaked.",
+  toppings: ["Ghee", "Coriander"]
+},
+{
+  id: 142, name: "Murukku Sandwich", price: 55, hotelId: 5, img: "", rating: 4.1,
+  description: "Street snack made with crispy murukku and fillings.",
+  cookingMethod: "Assembled cold.",
+  toppings: ["Carrot", "Chutney", "Onion"]
+},
+{
+  id: 143, name: "Kothu Parotta", price: 120, hotelId: 5, img: "", rating: 4.5,
+  description: "Minced parotta tossed with eggs and masala.",
+  cookingMethod: "Chopped and stir-fried.",
+  toppings: ["Onion", "Curry Leaves"]
+},
+{
+  id: 144, name: "Filter Coffee", price: 30, hotelId: 12, img: "", rating: 4.7,
+  description: "Strong South Indian coffee with frothy top.",
+  cookingMethod: "Brewed with decoction and milk.",
+  toppings: ["Froth"]
+},
+{
+  id: 145, name: "Podi Dosa", price: 75, hotelId: 10, img: "", rating: 4.2,
+  description: "Dosa topped with spicy podi powder.",
+  cookingMethod: "Tawa roasted with ghee.",
+  toppings: ["Podi", "Butter", "Chutney"]
+},
+{
+  id: 146, name: "Rasam Rice", price: 70, hotelId: 12, img: "", rating: 4.3,
+  description: "Hot and tangy rasam poured over rice.",
+  cookingMethod: "Tempered with garlic and mustard.",
+  toppings: ["Papad", "Ghee"]
+},
+{
+  id: 147, name: "Pongal", price: 80, hotelId: 5, img: "", rating: 4.4,
+  description: "Rice-lentil dish with pepper and cumin.",
+  cookingMethod: "Pressure-cooked to soft consistency.",
+  toppings: ["Ghee", "Cashew", "Pepper"]
+},
+{
+  id: 148, name: "Medu Vada", price: 50, hotelId: 10, img: "", rating: 4.3,
+  description: "Crispy lentil donut-shaped fritter.",
+  cookingMethod: "Deep-fried till golden.",
+  toppings: ["Chutney", "Sambar"]
+},
+{
+  id: 149, name: "Karuvadu Fry", price: 160, hotelId: 12, img: "", rating: 4.1,
+  description: "Dry fish fry with spicy masala.",
+  cookingMethod: "Pan-fried with chili and curry leaves.",
+  toppings: ["Onion", "Lemon"]
+},
+{
+  id: 150, name: "Veg Kurma", price: 90, hotelId: 12, img: "", rating: 4.2,
+  description: "Creamy coconut-based vegetable curry.",
+  cookingMethod: "Simmered with spices and ground paste.",
+  toppings: ["Coriander", "Ghee"]
+},
+
+
+// Hyderabad (10)
+{
+  id: 131, name: "Hyderabadi Biryani", price: 220, hotelId: 4, img: "", rating: 4.7,
+  description: "Fragrant basmati rice layered with spiced marinated meat.",
+  cookingMethod: "Dum-cooked in sealed pot.",
+  toppings: ["Fried Onions", "Mint", "Boiled Egg"]
+},
+{
+  id: 132, name: "Double Ka Meetha", price: 90, hotelId: 9, img: "", rating: 4.4,
+  description: "Sweet bread pudding soaked in saffron syrup.",
+  cookingMethod: "Fried bread soaked in milk and sugar.",
+  toppings: ["Dry Fruits", "Saffron", "Rose Water"]
+},
+{
+  id: 133, name: "Mirchi Ka Salan", price: 110, hotelId: 4, img: "", rating: 4.3,
+  description: "Spicy chili curry with sesame and peanuts.",
+  cookingMethod: "Simmered in nutty masala gravy.",
+  toppings: ["Coriander", "Crispy Chilies"]
+},
+{
+  id: 134, name: "Qubani Ka Meetha", price: 85, hotelId: 9, img: "", rating: 4.5,
+  description: "Dessert made from dried apricots.",
+  cookingMethod: "Soaked, boiled and sweetened.",
+  toppings: ["Cream", "Chopped Nuts"]
+},
+{
+  id: 135, name: "Haleem", price: 180, hotelId: 4, img: "", rating: 4.6,
+  description: "Slow-cooked meat and wheat stew.",
+  cookingMethod: "Beaten and cooked overnight.",
+  toppings: ["Lemon", "Fried Onions", "Mint"]
+},
+{
+  id: 136, name: "Bagara Rice", price: 100, hotelId: 9, img: "", rating: 4.2,
+  description: "Mild spiced rice cooked with whole spices.",
+  cookingMethod: "Tempered with bay leaf and garam masala.",
+  toppings: ["Fried Cashew", "Coriander"]
+},
+{
+  id: 137, name: "Khatti Dal", price: 95, hotelId: 4, img: "", rating: 4.1,
+  description: "Tangy lentil curry with tamarind.",
+  cookingMethod: "Boiled and tempered with garlic and mustard.",
+  toppings: ["Coriander", "Ghee"]
+},
+{
+  id: 138, name: "Osmania Biscuit", price: 35, hotelId: 9, img: "", rating: 4.3,
+  description: "Popular tea biscuit of Hyderabad.",
+  cookingMethod: "Baked with ghee and milk.",
+  toppings: ["None"]
+},
+{
+  id: 139, name: "Keema Samosa", price: 40, hotelId: 9, img: "", rating: 4.4,
+  description: "Crispy samosa stuffed with spiced minced meat.",
+  cookingMethod: "Deep-fried to golden brown.",
+  toppings: ["Mint Chutney", "Onion"]
+},
+{
+  id: 140, name: "Chicken 65", price: 130, hotelId: 4, img: "", rating: 4.5,
+  description: "Crispy fried chicken bites.",
+  cookingMethod: "Marinated and deep-fried.",
+  toppings: ["Curry Leaves", "Green Chilies"]
+},
+
+
+
+
+
 ];

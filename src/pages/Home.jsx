@@ -38,7 +38,7 @@ export default function Home() {
 
   const trendingHotels = [...hotels]
     .sort((a, b) => b.rating - a.rating)
-    .slice(0, 5);
+    .slice(0,);
 
   return (
     <div className="container mt-4 pb-5">
@@ -73,15 +73,17 @@ export default function Home() {
         <h4 className="mb-3 text-primary">🌟 Trending Hotels</h4>
         <div className="d-flex flex-wrap gap-2 mb-4">
           {trendingHotels.map(hotel => (
-            <button
-              key={hotel.id}
-              className={`btn btn-sm rounded-pill ${
-                filterHotel == hotel.id ? 'btn-primary' : 'btn-outline-secondary'
-              }`}
-              onClick={() => setFilterHotel(filterHotel == hotel.id ? '' : hotel.id)}
-            >
-              {hotel.name}
-            </button>
+          <button
+  key={hotel.id}
+  className={`btn btn-sm rounded-pill fw-bold hotel-filter-btn ${
+    filterHotel == hotel.id ? 'btn-primary text-white' : 'btn-outline-secondary text-dark'
+  }`}
+  onClick={() => setFilterHotel(filterHotel == hotel.id ? '' : hotel.id)}
+>
+  {hotel.name}
+</button>
+
+
           ))}
         </div>
       </motion.div>

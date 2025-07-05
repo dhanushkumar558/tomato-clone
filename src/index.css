@@ -12,6 +12,9 @@
     box-shadow: 0 0 18px 5px rgba(13, 110, 253, 0.9);
   }
 }
-body {
-  overflow-x: hidden;
+
+.hotel-filter-btn:hover {
+  background-color: #000 !important;
+  color: #fff !important;
+  border-color: #000 !important;
 }
