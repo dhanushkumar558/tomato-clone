@@ -66,12 +66,15 @@ setOrdersCount(activeDeliveries.length); // ✅ shows correct count
       animate={{ y: 0 }}
       transition={{ type: 'spring', stiffness: 100, damping: 14 }}
     >
-      <Link
-        to="/"
-        className="navbar-brand fw-bold text-warning fs-3"
-        onClick={closeNav}
-        style={{ letterSpacing: '1px' }}
-      >
+     <Link
+  to="/"
+  className="navbar-brand fw-bold text-warning fs-3"
+  onClick={() => {
+    closeNav();
+    window.location.href = '/'; // 👈 This will cause a full reload (fallback option)
+  }}
+>
+
         <motion.span
           whileHover={{ scale: 1.1, rotate: -5 }}
           transition={{ type: 'spring', stiffness: 300 }}
