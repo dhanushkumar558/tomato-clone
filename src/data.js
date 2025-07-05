@@ -24,67 +24,78 @@ export const hotels = [
 
 
 export const foodItems = [
-  // Delhi (10)
+  // Hyderabad (10)
   {
-    id: 101, name: "Margherita Pizza", price: 199, hotelId: 1, img: "https://cdn.loveandlemons.com/wp-content/uploads/2023/07/margherita-pizza-recipe-719x1024.jpg", rating: 4.5,
-    description: "Classic cheese pizza with tomato sauce and fresh basil.",
-    cookingMethod: "Baked in a stone oven at 400°C for 12 minutes.",
-    toppings: ["Extra Cheese", "Olives", "Basil"]
+    id: 101, name: "Hyderabadi Biryani", price: 220, hotelId: 4,
+    img: "https://vismaifood.com/storage/app/uploads/public/980/eb9/ed6/thumb__1200_0_0_0_auto.jpg", rating: 4.7,
+    description: "Fragrant basmati rice layered with spiced marinated meat.",
+    cookingMethod: "Dum-cooked in sealed pot.",
+    toppings: ["Fried Onions", "Mint", "Boiled Egg"]
   },
   {
-    id: 102, name: "Tomato Soup", price: 89, hotelId: 1, img: "https://www.indianhealthyrecipes.com/wp-content/uploads/2022/11/tomato-soup-recipe.jpg", rating: 4.1,
-    description: "Creamy tomato soup served with croutons.",
-    cookingMethod: "Slow-simmered with herbs for 30 minutes.",
-    toppings: ["Cream", "Parsley", "Croutons"]
+    id: 102, name: "Double Ka Meetha", price: 90, hotelId: 9,
+    img: "https://lh3.googleusercontent.com/proxy/kQnD5jq6d5r4YfQkQuvDHYqGx3lmpzdWJnmM1jgI1InmgIxkL6yg24mbA60nMOOfdeNPfH26-IrUKhdlkYNpzxT2ZU2J8vJBgqc02nlVa7tJujVQtG8fLOvAldaibFmbzeFKgPYN3eL7EjGJw8zNt1XTSFkNXeR93PVbBgsuaQXFKNlblumcJg", rating: 4.4,
+    description: "Sweet bread pudding soaked in saffron syrup.",
+    cookingMethod: "Fried bread soaked in milk and sugar.",
+    toppings: ["Dry Fruits", "Saffron", "Rose Water"]
   },
   {
-    id: 103, name: "Paneer Wrap", price: 149, hotelId: 6, img: "https://www.vegrecipesofindia.com/wp-content/uploads/2017/01/paneer-kathi-roll-recipe-1.jpg", rating: 4.3,
-    description: "Spicy paneer rolled in soft rumali roti.",
-    cookingMethod: "Grilled paneer cubes and sautéed veggies.",
-    toppings: ["Cheese", "Lettuce", "Chutney"]
+    id: 103, name: "Mirchi Ka Salan", price: 110, hotelId: 4,
+    img: "https://www.indianhealthyrecipes.com/wp-content/uploads/2022/11/mirchi-ka-salan-recipe.jpg", rating: 4.3,
+    description: "Spicy chili curry with sesame and peanuts.",
+    cookingMethod: "Simmered in nutty masala gravy.",
+    toppings: ["Coriander", "Crispy Chilies"]
   },
   {
-    id: 104, name: "Dahi Bhalla", price: 99, hotelId: 6, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3QEe9gaLQSdbhgoq5wP_97GMKw6CedWlrLQ&s", rating: 4.2,
-    description: "Soft lentil dumplings soaked in yogurt and spices.",
-    cookingMethod: "Fried and soaked overnight in yogurt.",
-    toppings: ["Pomegranate", "Tamarind", "Mint"]
+    id: 104, name: "Qubani Ka Meetha", price: 85, hotelId: 9,
+    img: "https://charminarhotel.com/wp-content/uploads/2024/07/Untitled-design-45.jpg", rating: 4.5,
+    description: "Dessert made from dried apricots.",
+    cookingMethod: "Soaked, boiled and sweetened.",
+    toppings: ["Cream", "Chopped Nuts"]
   },
   {
-    id: 105, name: "Chole Bhature", price: 169, hotelId: 11, img: "https://chefadora.b-cdn.net/medium_23ff54faa8628ac0b378003d51b400e4_511694cd35.jpg", rating: 4.5,
-    description: "Spicy chickpeas served with fluffy fried bread.",
-    cookingMethod: "Slow-cooked chickpeas with masala.",
-    toppings: ["Onion", "Green Chili", "Lemon"]
+    id: 105, name: "Haleem", price: 180, hotelId: 4,
+    img: "https://images.slurrp.com/prod/recipe_images/transcribe/main%20course/Mutton-Haleem.webp?impolicy=slurrp-20210601&width=1200&height=675", rating: 4.6,
+    description: "Slow-cooked meat and wheat stew.",
+    cookingMethod: "Beaten and cooked overnight.",
+    toppings: ["Lemon", "Fried Onions", "Mint"]
   },
   {
-    id: 106, name: "Butter Chicken", price: 299, hotelId: 11, img: "https://www.spiceroots.com/spiceroots/wp-content/uploads/2008/05/butterchicken-1024x682.jpg", rating: 4.6,
-    description: "Rich and creamy North Indian chicken curry.",
-    cookingMethod: "Tandoor-cooked chicken simmered in butter gravy.",
-    toppings: ["Cream", "Coriander", "Butter"]
+    id: 106, name: "Bagara Rice", price: 100, hotelId: 9,
+    img: "https://static1.squarespace.com/static/6377aa05818ff4582d7b4dcf/6377e22b75f46a2d37e25c10/6377e22b75f46a2d37e25ca0/1668801067879/IMG_4414.jpg?format=original", rating: 4.2,
+    description: "Mild spiced rice cooked with whole spices.",
+    cookingMethod: "Tempered with bay leaf and garam masala.",
+    toppings: ["Fried Cashew", "Coriander"]
   },
   {
-    id: 107, name: "Samosa", price: 20, hotelId: 1, img: "https://static.toiimg.com/thumb/61050397.cms?imgsize=246859&width=800&height=800", rating: 4.0,
-    description: "Crispy triangle filled with spicy potato mix.",
-    cookingMethod: "Deep-fried golden brown.",
-    toppings: ["Mint Chutney", "Tamarind", "Onion"]
+    id: 107, name: "Khatti Dal", price: 95, hotelId: 4,
+    img: "https://c.ndtvimg.com/2020-03/43fpvqa8_hyderabadi-khatti-dal_625x300_24_March_20.jpg", rating: 4.1,
+    description: "Tangy lentil curry with tamarind.",
+    cookingMethod: "Boiled and tempered with garlic and mustard.",
+    toppings: ["Coriander", "Ghee"]
   },
   {
-    id: 108, name: "Tandoori Roti", price: 15, hotelId: 11, img: "https://www.tarladalal.com/media/recipe/method/2025/01/16/tandoori-roti_9659-5-198090.webp", rating: 4.1,
-    description: "Whole wheat roti baked in clay oven.",
-    cookingMethod: "Tandoor-cooked over charcoal flame.",
-    toppings: ["Butter", "Ghee"]
+    id: 108, name: "Osmania Biscuit", price: 35, hotelId: 9,
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm3HLwFVrN9PIQOgxinY_lD65McO54hsLD8w&s", rating: 4.3,
+    description: "Popular tea biscuit of Hyderabad.",
+    cookingMethod: "Baked with ghee and milk.",
+    toppings: ["None"]
   },
   {
-    id: 109, name: "Stuffed Paratha", price: 80, hotelId: 6, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrSDK4UaWhTXy-MsSZF-QBunAieMQxcovNog&s", rating: 4.2,
-    description: "Flaky paratha filled with potato or paneer.",
-    cookingMethod: "Griddled with ghee.",
-    toppings: ["Butter", "Pickle", "Curd"]
+    id: 109, name: "Keema Samosa", price: 40, hotelId: 9,
+    img: "https://butfirstchai.com/wp-content/uploads/2023/11/keema-samosa-recipe.jpg", rating: 4.4,
+    description: "Crispy samosa stuffed with spiced minced meat.",
+    cookingMethod: "Deep-fried to golden brown.",
+    toppings: ["Mint Chutney", "Onion"]
   },
   {
-    id: 110, name: "Rajma Chawal", price: 120, hotelId: 1, img: "https://www.indianfoodforever.com/iffwd/wp-content/uploads/rajma-chawal-500x450.jpg", rating: 4.3,
-    description: "Red kidney beans curry with rice.",
-    cookingMethod: "Pressure-cooked with Punjabi masala.",
-    toppings: ["Onion", "Lemon", "Coriander"]
+    id: 110, name: "Chicken 65", price: 130, hotelId: 4,
+    img: "https://bonmasala.com/wp-content/uploads/2022/06/Chicken-65-recipe.webp", rating: 4.5,
+    description: "Crispy fried chicken bites.",
+    cookingMethod: "Marinated and deep-fried.",
+    toppings: ["Curry Leaves", "Green Chilies"]
   },
+
 
   // Mumbai (10)
   {
@@ -212,130 +223,138 @@ export const foodItems = [
 
   // Chennai (10)
 {
-  id: 141, name: "Sambar Idli", price: 60, hotelId: 12, img: "", rating: 4.3,
+  id: 141, name: "Sambar Idli", price: 60, hotelId: 12, img: "https://imgs.search.brave.com/j66SsGZf3ZQEuRhDSMCJ2OTHB3HYeE_ezlgwHaiVwac/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/dmVncmVjaXBlc29m/aW5kaWEuY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDI1LzA0/L2lkbGktc2FtYmFy/LXRpZmZpbi01MDB4/NTAwLmpwZw", rating: 4.3,
   description: "Soft idlis dunked in hot sambar.",
   cookingMethod: "Steamed and soaked.",
   toppings: ["Ghee", "Coriander"]
 },
 {
-  id: 142, name: "Murukku Sandwich", price: 55, hotelId: 5, img: "", rating: 4.1,
+  id: 142, name: "Murukku Sandwich", price: 55, hotelId: 5, img: "https://imgs.search.brave.com/XGAsxQNGj0qvkgA5lW2Ub0w8XsSRA9PQ8F2_IavoUfw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWct/Z2xvYmFsLmNwY2Ru/LmNvbS9yZWNpcGVz/LzQxZWRiNThhMGU4/MjdmMzAvNjgweDQ4/MmNxNzAvY2hlZXNl/LW11cnVra3Utc2Fu/ZHdpY2gtcmVjaXBl/LW1haW4tcGhvdG8u/anBn", rating: 4.1,
   description: "Street snack made with crispy murukku and fillings.",
   cookingMethod: "Assembled cold.",
   toppings: ["Carrot", "Chutney", "Onion"]
 },
 {
-  id: 143, name: "Kothu Parotta", price: 120, hotelId: 5, img: "", rating: 4.5,
+  id: 143, name: "Kothu Parotta", price: 120, hotelId: 5, img: "https://www.licious.in/blog/wp-content/uploads/2020/06/KUTTU-PORATTA.jpg", rating: 4.5,
   description: "Minced parotta tossed with eggs and masala.",
   cookingMethod: "Chopped and stir-fried.",
   toppings: ["Onion", "Curry Leaves"]
 },
 {
-  id: 144, name: "Filter Coffee", price: 30, hotelId: 12, img: "", rating: 4.7,
+  id: 144, name: "Filter Coffee", price: 30, hotelId: 12, img: "https://www.thecaffeinebaar.com/cdn/shop/articles/Filter_1500x.jpg?v=1636717220", rating: 4.7,
   description: "Strong South Indian coffee with frothy top.",
   cookingMethod: "Brewed with decoction and milk.",
   toppings: ["Froth"]
 },
 {
-  id: 145, name: "Podi Dosa", price: 75, hotelId: 10, img: "", rating: 4.2,
+  id: 145, name: "Podi Dosa", price: 75, hotelId: 10, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvB95EU5Fkmz8X2OmCNhf26s8wEit90bsMZw&s", rating: 4.2,
   description: "Dosa topped with spicy podi powder.",
   cookingMethod: "Tawa roasted with ghee.",
   toppings: ["Podi", "Butter", "Chutney"]
 },
 {
-  id: 146, name: "Rasam Rice", price: 70, hotelId: 12, img: "", rating: 4.3,
+  id: 146, name: "Rasam Rice", price: 70, hotelId: 12, img: "https://vanitascorner.com/wp-content/uploads/2024/11/Dal-Rasam-Rice-FB-500x500.jpg", rating: 4.3,
   description: "Hot and tangy rasam poured over rice.",
   cookingMethod: "Tempered with garlic and mustard.",
   toppings: ["Papad", "Ghee"]
 },
 {
-  id: 147, name: "Pongal", price: 80, hotelId: 5, img: "", rating: 4.4,
+  id: 147, name: "Pongal", price: 80, hotelId: 5, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQurdrg9psTexh_4QHu8GtMg4L4RIT6SE_b0g&s", rating: 4.4,
   description: "Rice-lentil dish with pepper and cumin.",
   cookingMethod: "Pressure-cooked to soft consistency.",
   toppings: ["Ghee", "Cashew", "Pepper"]
 },
 {
-  id: 148, name: "Medu Vada", price: 50, hotelId: 10, img: "", rating: 4.3,
+  id: 148, name: "Medu Vada", price: 50, hotelId: 10, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbaqeRbG_S1cgllKzjLsTTYIklzBXMJbBeSA&s", rating: 4.3,
   description: "Crispy lentil donut-shaped fritter.",
   cookingMethod: "Deep-fried till golden.",
   toppings: ["Chutney", "Sambar"]
 },
 {
-  id: 149, name: "Karuvadu Fry", price: 160, hotelId: 12, img: "", rating: 4.1,
+  id: 149, name: "Karuvadu Fry", price: 160, hotelId: 12, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVMHfFzmckG4E6FXRy7juHgwX8uTG6guqPqw&s", rating: 4.1,
   description: "Dry fish fry with spicy masala.",
   cookingMethod: "Pan-fried with chili and curry leaves.",
   toppings: ["Onion", "Lemon"]
 },
 {
-  id: 150, name: "Veg Kurma", price: 90, hotelId: 12, img: "", rating: 4.2,
+  id: 150, name: "Veg Kurma", price: 90, hotelId: 12, img: "https://www.cookclickndevour.com/wp-content/uploads/2016/05/vegetable-korma-recipe-1.jpg", rating: 4.2,
   description: "Creamy coconut-based vegetable curry.",
   cookingMethod: "Simmered with spices and ground paste.",
   toppings: ["Coriander", "Ghee"]
 },
 
 
-// Hyderabad (10)
+// Delhi (10)
 {
-  id: 131, name: "Hyderabadi Biryani", price: 220, hotelId: 4, img: "", rating: 4.7,
-  description: "Fragrant basmati rice layered with spiced marinated meat.",
-  cookingMethod: "Dum-cooked in sealed pot.",
-  toppings: ["Fried Onions", "Mint", "Boiled Egg"]
-},
-{
-  id: 132, name: "Double Ka Meetha", price: 90, hotelId: 9, img: "", rating: 4.4,
-  description: "Sweet bread pudding soaked in saffron syrup.",
-  cookingMethod: "Fried bread soaked in milk and sugar.",
-  toppings: ["Dry Fruits", "Saffron", "Rose Water"]
-},
-{
-  id: 133, name: "Mirchi Ka Salan", price: 110, hotelId: 4, img: "", rating: 4.3,
-  description: "Spicy chili curry with sesame and peanuts.",
-  cookingMethod: "Simmered in nutty masala gravy.",
-  toppings: ["Coriander", "Crispy Chilies"]
-},
-{
-  id: 134, name: "Qubani Ka Meetha", price: 85, hotelId: 9, img: "", rating: 4.5,
-  description: "Dessert made from dried apricots.",
-  cookingMethod: "Soaked, boiled and sweetened.",
-  toppings: ["Cream", "Chopped Nuts"]
-},
-{
-  id: 135, name: "Haleem", price: 180, hotelId: 4, img: "", rating: 4.6,
-  description: "Slow-cooked meat and wheat stew.",
-  cookingMethod: "Beaten and cooked overnight.",
-  toppings: ["Lemon", "Fried Onions", "Mint"]
-},
-{
-  id: 136, name: "Bagara Rice", price: 100, hotelId: 9, img: "", rating: 4.2,
-  description: "Mild spiced rice cooked with whole spices.",
-  cookingMethod: "Tempered with bay leaf and garam masala.",
-  toppings: ["Fried Cashew", "Coriander"]
-},
-{
-  id: 137, name: "Khatti Dal", price: 95, hotelId: 4, img: "", rating: 4.1,
-  description: "Tangy lentil curry with tamarind.",
-  cookingMethod: "Boiled and tempered with garlic and mustard.",
-  toppings: ["Coriander", "Ghee"]
-},
-{
-  id: 138, name: "Osmania Biscuit", price: 35, hotelId: 9, img: "", rating: 4.3,
-  description: "Popular tea biscuit of Hyderabad.",
-  cookingMethod: "Baked with ghee and milk.",
-  toppings: ["None"]
-},
-{
-  id: 139, name: "Keema Samosa", price: 40, hotelId: 9, img: "", rating: 4.4,
-  description: "Crispy samosa stuffed with spiced minced meat.",
-  cookingMethod: "Deep-fried to golden brown.",
-  toppings: ["Mint Chutney", "Onion"]
-},
-{
-  id: 140, name: "Chicken 65", price: 130, hotelId: 4, img: "", rating: 4.5,
-  description: "Crispy fried chicken bites.",
-  cookingMethod: "Marinated and deep-fried.",
-  toppings: ["Curry Leaves", "Green Chilies"]
-},
-
-
+    id: 131, name: "Margherita Pizza", price: 199, hotelId: 1,
+    img: "https://cdn.loveandlemons.com/wp-content/uploads/2023/07/margherita-pizza-recipe-719x1024.jpg", rating: 4.5,
+    description: "Classic cheese pizza with tomato sauce and fresh basil.",
+    cookingMethod: "Baked in a stone oven at 400°C for 12 minutes.",
+    toppings: ["Extra Cheese", "Olives", "Basil"]
+  },
+  {
+    id: 132, name: "Tomato Soup", price: 89, hotelId: 1,
+    img: "https://www.indianhealthyrecipes.com/wp-content/uploads/2022/11/tomato-soup-recipe.jpg", rating: 4.1,
+    description: "Creamy tomato soup served with croutons.",
+    cookingMethod: "Slow-simmered with herbs for 30 minutes.",
+    toppings: ["Cream", "Parsley", "Croutons"]
+  },
+  {
+    id: 133, name: "Paneer Wrap", price: 149, hotelId: 6,
+    img: "https://www.vegrecipesofindia.com/wp-content/uploads/2017/01/paneer-kathi-roll-recipe-1.jpg", rating: 4.3,
+    description: "Spicy paneer rolled in soft rumali roti.",
+    cookingMethod: "Grilled paneer cubes and sautéed veggies.",
+    toppings: ["Cheese", "Lettuce", "Chutney"]
+  },
+  {
+    id: 134, name: "Dahi Bhalla", price: 99, hotelId: 6,
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3QEe9gaLQSdbhgoq5wP_97GMKw6CedWlrLQ&s", rating: 4.2,
+    description: "Soft lentil dumplings soaked in yogurt and spices.",
+    cookingMethod: "Fried and soaked overnight in yogurt.",
+    toppings: ["Pomegranate", "Tamarind", "Mint"]
+  },
+  {
+    id: 135, name: "Chole Bhature", price: 169, hotelId: 11,
+    img: "https://chefadora.b-cdn.net/medium_23ff54faa8628ac0b378003d51b400e4_511694cd35.jpg", rating: 4.5,
+    description: "Spicy chickpeas served with fluffy fried bread.",
+    cookingMethod: "Slow-cooked chickpeas with masala.",
+    toppings: ["Onion", "Green Chili", "Lemon"]
+  },
+  {
+    id: 136, name: "Butter Chicken", price: 299, hotelId: 11,
+    img: "https://www.spiceroots.com/spiceroots/wp-content/uploads/2008/05/butterchicken-1024x682.jpg", rating: 4.6,
+    description: "Rich and creamy North Indian chicken curry.",
+    cookingMethod: "Tandoor-cooked chicken simmered in butter gravy.",
+    toppings: ["Cream", "Coriander", "Butter"]
+  },
+  {
+    id: 137, name: "Samosa", price: 20, hotelId: 1,
+    img: "https://static.toiimg.com/thumb/61050397.cms?imgsize=246859&width=800&height=800", rating: 4.0,
+    description: "Crispy triangle filled with spicy potato mix.",
+    cookingMethod: "Deep-fried golden brown.",
+    toppings: ["Mint Chutney", "Tamarind", "Onion"]
+  },
+  {
+    id: 138, name: "Tandoori Roti", price: 15, hotelId: 11,
+    img: "https://www.tarladalal.com/media/recipe/method/2025/01/16/tandoori-roti_9659-5-198090.webp", rating: 4.1,
+    description: "Whole wheat roti baked in clay oven.",
+    cookingMethod: "Tandoor-cooked over charcoal flame.",
+    toppings: ["Butter", "Ghee"]
+  },
+  {
+    id: 139, name: "Stuffed Paratha", price: 80, hotelId: 6,
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrSDK4UaWhTXy-MsSZF-QBunAieMQxcovNog&s", rating: 4.2,
+    description: "Flaky paratha filled with potato or paneer.",
+    cookingMethod: "Griddled with ghee.",
+    toppings: ["Butter", "Pickle", "Curd"]
+  },
+  {
+    id: 140, name: "Rajma Chawal", price: 120, hotelId: 1,
+    img: "https://www.indianfoodforever.com/iffwd/wp-content/uploads/rajma-chawal-500x450.jpg", rating: 4.3,
+    description: "Red kidney beans curry with rice.",
+    cookingMethod: "Pressure-cooked with Punjabi masala.",
+    toppings: ["Onion", "Lemon", "Coriander"]
+  }
 
 
 

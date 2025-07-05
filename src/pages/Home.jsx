@@ -108,7 +108,7 @@ export default function Home() {
             <div key={index}>
               {/* Food Cards Row */}
               <motion.div
-                className="row g-4 mb-5"
+                className="row g-4 mb-5 justify-content-center"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
