@@ -7,6 +7,7 @@ import CityHotelSection from '../components/CityHotelSection';
 import { motion } from 'framer-motion';
 
 export default function Home() {
+  
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState('');
   const [filterHotel, setFilterHotel] = useState('');

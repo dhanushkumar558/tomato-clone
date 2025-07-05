@@ -11,14 +11,16 @@ import Orders from './pages/Orders';
 import AllHotelsByCity from './pages/AllHotelsByCity';
 import SavedItems from './pages/SavedItems';
 import Footer from './components/Footer';
-import './App.css'; // 👈 Make sure you import the CSS for background styles
+import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="app-background"> {/* ✅ Global background wrapper */}
+      <div className="d-flex flex-column min-vh-100 app-background"> {/* Main flex wrapper */}
         <Navbar />
-        <div style={{ paddingTop: '70px' }}>
+
+        {/* Content container */}
+        <div className="flex-grow-1" style={{ paddingTop: '70px' }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
@@ -30,10 +32,11 @@ function App() {
             <Route path="/payment" element={<Payment />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/saved" element={<SavedItems />} />
-            
           </Routes>
-          <Footer />
         </div>
+
+        {/* Footer outside content container */}
+        <Footer />
       </div>
     </BrowserRouter>
   );
